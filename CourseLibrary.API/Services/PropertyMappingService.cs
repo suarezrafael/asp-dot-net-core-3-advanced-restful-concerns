@@ -11,14 +11,13 @@ namespace CourseLibrary.API.Services
     public class PropertyMappingService : IPropertyMappingService
     {
         private Dictionary<string, PropertyMappingValue> _authorPropertyMapping =
-
-            new Dictionary<string, PropertyMappingValue>()
-            {
-                { "Id", new PropertyMappingValue( new List<string>(){ "Id" })},
-                { "MainCategory", new PropertyMappingValue(new List<string>(){ "MainCategory" })},
-                { "Age", new PropertyMappingValue(new List<string>(){ "DateOfBirth"},true)},
-                { "Name", new PropertyMappingValue(new List<string>(){ "FirstName","LastName" })}
-            };
+          new Dictionary<string, PropertyMappingValue>(StringComparer.OrdinalIgnoreCase)
+          {
+               { "Id", new PropertyMappingValue(new List<string>() { "Id" } ) },
+               { "MainCategory", new PropertyMappingValue(new List<string>() { "MainCategory" } )},
+               { "Age", new PropertyMappingValue(new List<string>() { "DateOfBirth" } , true) },
+               { "Name", new PropertyMappingValue(new List<string>() { "FirstName", "LastName" }) }
+          };
 
         private IList<IPropertyMapping> _propertyMappings = new List<IPropertyMapping>();
 
